@@ -7,7 +7,7 @@ import typing as t
 
 from app.core import config, security
 from app.db.session import Base, get_db
-from app.db import models
+from app.models import user
 from app.main import app
 
 

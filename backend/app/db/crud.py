@@ -1,8 +1,10 @@
+from typing import List
+
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
-import typing as t
 
-from . import models, schemas
+from . import schemas
+from ..models import user
 from app.core.security import get_password_hash
 
 
@@ -19,7 +21,7 @@ def get_user_by_email(db: Session, email: str) -> schemas.UserBase:
 
 def get_users(
     db: Session, skip: int = 0, limit: int = 100
-) -> t.List[schemas.UserOut]:
+) -> List[schemas.UserOut]:
     return db.query(models.User).offset(skip).limit(limit).all()
 
 
