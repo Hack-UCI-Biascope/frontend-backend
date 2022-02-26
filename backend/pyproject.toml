@@ -32,8 +32,13 @@ isort = "^5.10.1"
 bandit = "^1.7.1"
 pylint = "^2.12.2"
 black = "^21.12b0"
-pytest = "^6.2.5"
+pytest = "7.0.1"
 sqlalchemy-stubs = "^0.4"
+flake8 = "^4.0.1"
+autoflake = "^1.4"
+pytest-cov = "3.0.0"
+pep8-naming = "^0.12.1"
+flake8-bugbear = "^22.1.11"
 
 
 [tool.isort]
@@ -55,23 +60,13 @@ exclude = '''
   | buck-out
   | build
   | dist
+  | alembic
 )/
 '''
 
 [tool.mypy]
 plugins = ["pydantic.mypy", "sqlmypy"]
 
-[tool.poetry.scripts]
-lint = "scripts:lint"
-l = "scripts.scripts:lint"
-format = "scripts.scripts:format"
-f = "scripts.scripts:format"
-format-lint = "scripts.scripts:format_and_lint"
-fl = "scripts.scripts:format_and_lint"
-test = "scripts.scripts:test"
-t = "scripts.scripts:test"
-format-lint-test = "scripts.scripts:format_lint_test"
-flt = "scripts.scripts:format_lint_test"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -1,0 +1,5 @@
+[flake8]
+ignore = D107, D202, D401, B008
+max-line-length = 120
+max-complexity = 10
+exclude = .git, __pycache__, __init__.py, .mypy_cache, .pytest_cache alembic

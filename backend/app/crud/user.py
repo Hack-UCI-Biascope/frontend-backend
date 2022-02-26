@@ -1,11 +1,11 @@
-from typing import List
+from typing import List, Optional
 
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 
-from . import schemas
-from ..models import user
+from app import models
 from app.core.security import get_password_hash
+from app.db import schemas
 
 
 def get_user(db: Session, user_id: int):
@@ -15,13 +15,11 @@ def get_user(db: Session, user_id: int):
     return user
 
 
-def get_user_by_email(db: Session, email: str) -> schemas.UserBase:
+def get_user_by_email(db: Session, email: str) -> Optional[models.User]:
     return db.query(models.User).filter(models.User.email == email).first()
 
 
-def get_users(
-    db: Session, skip: int = 0, limit: int = 100
-) -> List[schemas.UserOut]:
+def get_users(db: Session, skip: int = 0, limit: int = 100) -> List[models.User]:
     return db.query(models.User).offset(skip).limit(limit).all()
 
 
@@ -50,9 +48,7 @@ def delete_user(db: Session, user_id: int):
     return user
 
 
-def edit_user(
-    db: Session, user_id: int, user: schemas.UserEdit
-) -> schemas.User:
+def edit_user(db: Session, user_id: int, user: schemas.UserEdit) -> schemas.User:
     db_user = get_user(db, user_id)
     if not db_user:
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail="User not found")

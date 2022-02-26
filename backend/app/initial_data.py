@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-from app.db.session import get_db
-from app.db.crud import create_user
+from app.crud.user import create_user
 from app.db.schemas import UserCreate
 from app.db.session import SessionLocal
 
@@ -13,6 +12,7 @@ def init() -> None:
         db,
         UserCreate(
             email="raviriley@gmail.com",
+            password="186d580cbf9b546467925b12af9e730e09ccca8078bcd189c5ab338e8c3787dc",
             is_active=True,
             is_superuser=True,
         ),
