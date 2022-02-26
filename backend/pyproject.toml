@@ -67,6 +67,13 @@ exclude = '''
 [tool.mypy]
 plugins = ["pydantic.mypy", "sqlmypy"]
 
+[tool.poetry.scripts]
+lint = "scripts.scripts:lint"
+l = "scripts.scripts:lint"
+format = "scripts.scripts:format"
+f = "scripts.scripts:format"
+format-lint = "scripts.scripts:format_and_lint"
+fl = "scripts.scripts:format_and_lint"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
