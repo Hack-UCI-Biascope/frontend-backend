@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "backend"
+name = "app"
 version = "0.0.1"
 description = "The fast and efficient backend that powers Biascope."
 authors = ["Ravi Riley <raviriley@gmail.com>"]
