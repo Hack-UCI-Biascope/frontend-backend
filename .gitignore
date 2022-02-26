@@ -1,0 +1,38 @@
+.DS_Store
+
+.env
+
+# ###### Backend ######
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# Environments
+.env*
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Postgres
+.postgres/
+
+# ###### Frontend ######
+
+# dependencies
+*/node_modules/*
