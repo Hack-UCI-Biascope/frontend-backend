@@ -74,6 +74,10 @@ format = "scripts.scripts:format"
 f = "scripts.scripts:format"
 format-lint = "scripts.scripts:format_and_lint"
 fl = "scripts.scripts:format_and_lint"
+test = "scripts.scripts:test"
+t = "scripts.scripts:test"
+format-lint-test = "scripts.scripts:format_lint_test"
+flt = "scripts.scripts:format_lint_test"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

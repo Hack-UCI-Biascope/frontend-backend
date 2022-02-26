@@ -68,3 +68,23 @@ def format_and_lint() -> None:
     print(f"\n🚨 {TextStyle.UNDERLINE}Running linters...{TextStyle.END}")
     lint()
 
+
+def test() -> None:
+    """Same functionality as the testing script (test.sh).
+
+    Having these commands in a Python file enables them to be run with `poetry run`."""
+    # parser = argparse.ArgumentParser(description='Say hi.')
+    # parser.add_argument('target', type=str, default="tests", help='the name of the target')
+    # args = parser.parse_args()
+
+    subprocess.run(f"pytest --cov={project_folder}", shell=True, text=True)
+
+
+def format_lint_test() -> None:
+    """Runs linting, formatting, and testing in one go."""
+    print(f"🎨 {TextStyle.UNDERLINE}Running formatters...{TextStyle.END}")
+    format()
+    print(f"🚨 {TextStyle.UNDERLINE}Running linters...{TextStyle.END}")
+    lint()
+    print(f"🧪 {TextStyle.UNDERLINE}Running tests...{TextStyle.END}")
+    test()
