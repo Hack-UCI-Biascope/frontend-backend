@@ -19,7 +19,7 @@ class BiasScoper:
     def get_paragraph_bias(self, paragraph: str) -> float:
         """Get the bias of a paragraph in an article."""
         # return a random float between -1 and 1
-        bias = self.loaded_model.predict(paragraph)
+        bias = self.loaded_model.predict([paragraph])
         conversion = {'Left':-1,'Lean Left': -0.5, 'Center': 0, 'Lean Right': .5, 'Right': 1}
         return conversion[bias[0]]
 
