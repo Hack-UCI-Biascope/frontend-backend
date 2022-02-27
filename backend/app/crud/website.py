@@ -9,7 +9,11 @@ from app import models
 def add_website(db: Session, website_url: str, bias: Optional[float] = None) -> models.Website:
     if db.query(models.Website).filter(models.Website.url == website_url).first():
         raise HTTPException(status_code=400, detail="Website already exists")
-    name = website_url.split("://")[1].split("/")[0].title()
+    split_url = website_url.split("://")[1].split("/")[0].split(".")
+    if len(split_url) > 2:
+        name = split_url[1].capitalize()
+    else:
+        name = split_url[0].capitalize()
     if bias:
         website = models.Website(url=website_url, name=name, avg_bias=bias, num_data_points=1)
     else:
