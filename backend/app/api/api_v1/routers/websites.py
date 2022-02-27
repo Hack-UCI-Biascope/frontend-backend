@@ -10,5 +10,6 @@ websites_router = r = APIRouter()
 @r.get("/get_website_bias", response_model=schemas.Bias)
 async def get_website_bias(website_url: str, db=Depends(get_db)):
     """Get a website's bias."""
+    website_url = website_url.replace("www.", "")
     website = get_website(db, website_url)
     return schemas.Bias(coefficient=website.avg_bias)

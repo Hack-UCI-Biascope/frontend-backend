@@ -1,5 +1,6 @@
 import uvicorn
 from fastapi import Depends, FastAPI
+from starlette.middleware.cors import CORSMiddleware
 from starlette.requests import Request
 
 from app.api.api_v1.routers.articles import articles_router
@@ -12,6 +13,16 @@ from app.core.celery_app import celery_app
 from app.db.session import SessionLocal
 
 app = FastAPI(title=config.PROJECT_NAME, docs_url="/api/docs", openapi_url="/api")
+
+origins = [
+    "http://localhost",
+    "http://localhost:8080",
+    "http://localhost:8000",
+    "https://www.nytimes.com",
+    "https://nytimes.com",
+]
+
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=False, allow_methods=["*"], allow_headers=["*"])
 
 
 @app.middleware("http")
