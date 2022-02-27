@@ -18,6 +18,7 @@
   "scripts": {
     "lint": "eslint --ext .ts,.tsx src",
     "lint:fix": "eslint --ext .ts,.tsx src --fix",
+    "types": "tsc --noEmit",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "CI=true react-scripts test",
