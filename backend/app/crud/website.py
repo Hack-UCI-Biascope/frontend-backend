@@ -17,8 +17,8 @@ def get_website(
 def update_website(db: Session, website_url: str, new_bias: float) -> models.Website:
     website = get_website(db, website_url)
     num_data_points = website.num_data_points
-    new_avg = (website.avg_bias * num_data_points + new_bias) / (num_data_points + 1)
-    website.avg_bias = new_avg
+    new_avg = (float(website.avg_bias) * float(num_data_points) + new_bias) / (num_data_points + 1)
+    website.avg_bias = float(new_avg)
     website.num_data_points = num_data_points + 1
     db.add(website)
     db.commit()
