@@ -35,6 +35,7 @@ def get_website(
 
 
 def update_website(db: Session, website_url: str, new_bias: float) -> models.Website:
+    website_url = website_url.replace("www.", "")
     website = db.query(models.Website).filter(models.Website.url == website_url).first()
     if not website:
         website = add_website(db, website_url, new_bias)
