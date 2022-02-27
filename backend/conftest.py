@@ -98,9 +98,7 @@ def get_password_hash() -> str:
 
 @pytest.fixture
 def test_user(test_db) -> models.User:
-    """
-    Make a test user in the database
-    """
+    """Make a test user in the database."""
 
     user = models.User(
         email="fake@email.com",

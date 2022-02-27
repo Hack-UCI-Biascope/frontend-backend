@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 from app.crud.user import create_user
-from app.db.schemas import UserCreate
 from app.db.session import SessionLocal
+from app.schemas.user import UserCreate
 
 
 def init() -> None:

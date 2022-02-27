@@ -3,9 +3,8 @@ from typing import List, Optional
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 
-from app import models
+from app import models, schemas
 from app.core.security import get_password_hash
-from app.db import schemas
 
 
 def get_user(db: Session, user_id: int):

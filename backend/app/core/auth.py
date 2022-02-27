@@ -2,10 +2,10 @@ import jwt
 from fastapi import Depends, HTTPException, status
 from jwt import PyJWTError
 
-from app import models
+from app import models, schemas
 from app.core import security
 from app.crud.user import create_user, get_user_by_email
-from app.db import schemas, session
+from app.db import session
 
 
 async def get_current_user(db=Depends(session.get_db), token: str = Depends(security.oauth2_scheme)):
