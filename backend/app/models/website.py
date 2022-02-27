@@ -7,5 +7,5 @@ class Website(Base):
     __tablename__ = "website"
 
     url = Column(String, primary_key=True, index=True, unique=True)
-    avg_bias = Column(Float, server_default=0.5, nullable=False)
-    num_data_points = Column(Integer, server_default=0, nullable=False)
+    avg_bias = Column(Float, default=0.5, nullable=False)
+    num_data_points = Column(Integer, default=0, nullable=False)
