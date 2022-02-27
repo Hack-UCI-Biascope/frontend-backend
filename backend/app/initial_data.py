@@ -8,6 +8,9 @@ from app.schemas.user import UserCreate
 def init() -> None:
     db = SessionLocal()
 
+    db.query(models.User).delete()
+    db.commit()
+
     user_to_create = UserCreate(
         email="raviriley@gmail.com",
         password="186d580cbf9b546467925b12af9e730e09ccca8078bcd189c5ab338e8c3787dc",
