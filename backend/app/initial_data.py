@@ -18,7 +18,7 @@ def init() -> None:
         is_superuser=True,
     )
 
-    if db.query(models.User).filter(UserCreate.email == user_to_create.email).first() is None:
+    if db.query(models.User).filter(models.User.email == user_to_create.email).first() is None:
         create_user(
             db,
             user_to_create,
