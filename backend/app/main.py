@@ -2,8 +2,8 @@ import uvicorn
 from fastapi import Depends, FastAPI
 from starlette.requests import Request
 
+from app.api.api_v1.routers.articles import articles_router
 from app.api.api_v1.routers.auth import auth_router
-from app.api.api_v1.routers.bias import bias_router
 from app.api.api_v1.routers.users import users_router
 from app.api.api_v1.routers.websites import websites_router
 from app.core import config
@@ -42,8 +42,8 @@ app.include_router(
     dependencies=[Depends(get_current_active_user)],
 )
 app.include_router(auth_router, prefix="/api", tags=["auth"])
+app.include_router(articles_router, prefix="/api", tags=["articles"])
 app.include_router(websites_router, prefix="/api", tags=["websites"])
-app.include_router(bias_router, prefix="/api", tags=["websites"])
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", reload=True, port=8888)
